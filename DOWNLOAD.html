@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Linux Distro</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: rgb(0, 255, 0);
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .download-link {
+            --green: rgb(0, 255, 0);
+            font-size: 15px;
+            padding: 0.7em 2.7em;
+            letter-spacing: 0.06em;
+            position: relative;
+            font-family: inherit;
+            border-radius: 0.6em;
+            overflow: hidden;
+            transition: all 0.3s;
+            line-height: 1.4em;
+            border: 2px solid var(--green);
+            background: linear-gradient(to right, rgba(31, 253, 27, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 38, 0.1) 100%);
+            color: var(--green);
+            box-shadow: inset 0 0 10px rgba(27, 253, 27, 0.4), 0 0 9px 3px rgba(27, 253, 27, 0.1);
+            text-decoration: none; /* Added */
+            display: inline-block; /* Added */
+            margin: 10px; /* Added */
+        }
+        .download-link:hover {
+            color: #57f772;
+            box-shadow: inset 0 0 10px rgba(0, 255, 30, 0.29), 0 0 9px 3px rgba(3, 94, 33, 0.2);
+        }
+        .download-link:before {
+            content: "";
+            position: absolute;
+            left: -4em;
+            width: 4em;
+            height: 100%;
+            top: 0;
+            transition: transform .4s ease-in-out;
+            background: linear-gradient(to right, transparent 1%, rgba(27, 253, 84, 0.156) 40%,rgba(27, 253, 38, 0.1) 60% , transparent 100%);
+        }
+        .download-link:hover:before {
+            transform: translateX(15em);
+        }
+        /* Navigation styles */
+        nav {
+            background-color: #00ff2a8f;
+            padding: 10px 0;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: center; /* Center nav items */
+        }
+        nav ul li {
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="MAIN.html">Home</a></li>
+            <li><a href="DOWNLOAD.html">Download</a></li>
+            <li><a href="FORUM.html">Forum</a></li>
+            <li><a href="BLOG.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Download Linux Distro</h1>
+        <p>Choose the version you want to download:</p>
+        <a href="linux_distro_torrent.torrent" class="download-link">Torrent</a>
+        <a href="linux_distro_iso.iso" class="download-link">ISO</a>
+        <a href="linux_distro_dev.tar.gz" class="download-link">Development</a>
+    </div>
+</body>
+</html>

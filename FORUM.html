@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raven issue Forum</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        h1, h2 {
+            color: #1bfd1b;
+            text-align: center;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #32fd1b;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #00ff00;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #41fd1b;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #2afd1b;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #007f0b;
+        }
+
+        /* Message board styles */
+        #messages {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .message {
+            background-color: #444;
+            border: 1px solid #32fd1b;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .message:last-child {
+            margin-bottom: 0;
+        }
+
+        .message strong {
+            color: #1ffd1b;
+        }
+
+        .message .info {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .reply-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #32fd1b;
+            color: #000;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .reply-button:hover {
+            background-color: #007f17;
+        }
+
+        .reply-form {
+            margin-top: 10px;
+            margin-left: 20px;
+            display: none;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #1bfd1f;
+            margin-right: 10px;
+        }
+
+        .message .actions {
+            margin-top: 5px;
+        }
+
+        .message .actions button {
+            background-color: transparent;
+            border: none;
+            color: #1bfd1b;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .message .actions button:hover {
+            color: #027f00;
+        }
+        /* Navigation styles */
+        nav {
+            background-color: #00ff2a8f;
+            padding: 10px 0;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: center; /* Center nav items */
+        }
+        nav ul li {
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="MAIN.html">Home</a></li>
+            <li><a href="DOWNLOAD.html">Download</a></li>
+            <li><a href="FORUM.html">Forum</a></li>
+            <li><a href="BLOG.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Raven issue Forum</h1>
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message:</label>
+            <textarea id="message" class="form-input" placeholder="Type your message here"></textarea>
+        </div>
+        <button class="btn-submit" onclick="sendMessage()">Send Message</button>
+
+        <div id="messages"></div>
+    </div>
+
+    <script>
+        var messageId = 0;
+    
+        function sendMessage() {
+            var name = document.getElementById('name').value.trim();
+            var message = document.getElementById('message').value.trim();
+    
+            if (!name || !message) {
+                alert('Please enter your name and message.');
+                return;
+            }
+    
+            var messageElement = createMessageElement(name, message);
+            document.getElementById('messages').appendChild(messageElement);
+    
+            // Clear input fields
+            document.getElementById('name').value = '';
+            document.getElementById('message').value = '';
+        }
+    
+        function createMessageElement(name, message) {
+            var messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.setAttribute('data-id', messageId);
+            messageId++;
+    
+            messageDiv.innerHTML = `
+                <div class="avatar"></div>
+                <div>
+                    <strong>${name}</strong>: ${message}
+                    <div class="info">${getCurrentTimestamp()}</div>
+                </div>
+                <div class="actions">
+                    <button onclick="toggleReplyForm(this)">Reply</button>
+                    <button onclick="editMessage(this)">Edit</button>
+                    <button onclick="deleteMessage(this)">Delete</button>
+                </div>
+                <div class="reply-form" style="display: none;">
+                    <input type="text" class="form-input" placeholder="Your reply">
+                    <button class="btn-submit" onclick="sendReply(this)">Send</button>
+                </div>`;
+    
+            return messageDiv;
+        }
+    
+        function toggleReplyForm(button) {
+            var replyForm = button.parentElement.nextElementSibling;
+            replyForm.style.display = replyForm.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        function sendReply() {
+    var name = document.getElementById('name').value.trim();
+    var replyInput = document.querySelector('.reply-form input[type="text"]');
+    var replyMessage = replyInput.value.trim();
+    if (!name || !replyMessage) {
+        alert('Please enter your name and reply message.');
+        return;
+    }
+
+    var parentMessage = document.querySelector('.reply-form').parentElement;
+    var messageDiv = createMessageElement(name, replyMessage);
+    parentMessage.appendChild(messageDiv);
+
+    // Clear reply input field
+    replyInput.value = '';
+
+    // Hide the reply input field and send button
+    var replyForm = document.querySelector('.reply-form');
+    replyForm.style.display = 'none';
+
+    // Show the "Reply" button again
+    var replyButton = document.querySelector('.actions button:nth-of-type(1)');
+    replyButton.style.display = 'block';
+}
+
+
+
+
+
+    
+        function editMessage(button) {
+            var messageDiv = button.parentElement.parentElement;
+            var messageText = messageDiv.querySelector('div:nth-child(2)');
+            var messageContent = messageText.innerText.split(': ')[1]; // Extracting message content only
+            var newText = prompt('Edit message:', messageContent);
+            if (newText !== null) {
+                var timestamp = messageText.querySelector('.info').innerText;
+                messageText.innerHTML = `<strong>${messageText.innerText.split(': ')[0]}</strong>: ${newText}
+                                          <div class="info">${timestamp}</div>`;
+            }
+        }
+    
+        function deleteMessage(button) {
+            var confirmDelete = confirm("Are you sure you want to delete this message?");
+            if (confirmDelete) {
+                var messageDiv = button.parentElement.parentElement;
+                messageDiv.remove();
+            }
+        }
+    
+        function getCurrentTimestamp() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var timestamp = `${hours}:${minutes}`;
+            return timestamp;
+        }
+    </script>
+    
