@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raven Linux Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lemon+Milk&display=swap" rel="stylesheet">
+
   <style>
     /* General Styles */
     body {
@@ -94,7 +95,7 @@
 
     /* Navigation styles */
     nav {
-      background-color: #008000; /* Dark green navigation background */
+      background-color: #008000d2; /* Dark green navigation background */
       padding: 10px 0;
       text-align: center;
     }
@@ -178,28 +179,16 @@
     <hr>
 
     <div class="blog-post">
-      <h2>Contact Us</h2>
-      <p>Have questions or feedback? Feel free to contact us.</p>
-      <form method="post" action="contact.php">
+      <h2>Subscribe to our news letter</h2>
+    <p>Subscribe to our news letter to get information about Razvn Linux1</p>
+    <form method="post" action="subscribe.php">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br>
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br>
         <input type="submit" value="Submit">
       </form>
     </div>
   </div>
-
-  <script>
-    // Dummy JavaScript for interactivity
-    const shareIcons = document.querySelectorAll('.share a');
-    shareIcons.forEach(icon => {
-      icon.addEventListener('click', () => {
-        alert('Sharing functionality will be implemented in future updates.');
-      });
-    });
-  </script>
 </body>
 </html>

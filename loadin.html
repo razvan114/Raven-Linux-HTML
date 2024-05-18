@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h3 {
+            color: aquamarine;
+            position: absolute;
+            top: calc(50% - 50px); /* Adjust as needed */
+            left: calc(50% - 50px); /* Adjust as needed */
+        }
+
+        head {
+            background-color: rgba(0, 0, 0, 0.616);
+        }
+
+        body {
+            background-color: rgb(0, 0, 0);
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            --height-of-loader: 4px;
+            --loader-color: #40e200;
+            width: 130px;
+            height: var(--height-of-loader);
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.438);
+            position: relative;
+            margin-top: 20px; /* Adjust as needed */
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            background: var(--loader-color);
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            border-radius: 30px;
+            animation: moving 1s ease-in-out infinite;
+        }
+
+        @keyframes moving {
+            50% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+                right: 0;
+                left: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h3>Loading</h3>
+    <div class="loader"></div>
+</body>
+</html>

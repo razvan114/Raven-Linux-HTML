@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="Login_Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <center>
+    <div class="form-container">
+      <p class="title">Create account</p>
+      <form class="form">
+        <input type="text" class="input" placeholder="Name">
+        <input type="email" class="input" placeholder="Email">
+        <input type="password" class="input" placeholder="Password">
+        <button class="form-btn" id="createAccountBtn">Create account</button>
+      </form>
+      <p class="sign-up-label">
+        Already have an account?<span class="sign-up-link" id="loginLink">Log in</span>
+      </p>
+      <center>
+        <div class="google-login-button" id="googleBtn">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-icon" height="1em" width="1em">
+        </div>
+        
+          <span>Sign up with Github</span>
+        </div>
+      </div>
+    </div>
+  </center>
+</center>
+  <script>
+    document.getElementById("createAccountBtn").addEventListener("click", function() {
+      // Handle create account button click
+      // You can implement your actual sign-up logic here
+      alert("Create account button clicked");
+    });
+
+    document.getElementById("loginLink").addEventListener("click", function() {
+      // Handle login link click
+      // You can implement your actual login page redirection logic here
+      alert("Redirecting to login page");
+    });
+
+    document.getElementById("appleBtn").addEventListener("click", function() {
+      // Handle sign up with Apple button click
+      // You can implement your actual sign-up with Apple logic here
+      alert("Signing up with Apple");
+    });
+
+    document.getElementById("googleBtn").addEventListener("click", function() {
+  // Redirect the user to the Google OAuth consent screen
+  window.location.href = "https://accounts.google.com/o/oauth2/auth" +
+    "?response_type=code" +
+    "&client_id=YOUR_CLIENT_ID" +
+    "&redirect_uri=YOUR_REDIRECT_URI" +
+    "&scope=email%20profile";
+});
+
+  </script>
+</body>
+</html>

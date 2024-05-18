@@ -2,115 +2,265 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="assets/Raven.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Linux Distro</title>
+    <title>Raven Linux Download Page</title>
     <style>
-        /* Base styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #222;
-            color: #00ff00;
+            background-color: #212121;
+            color: #fff;
         }
 
-        /* Container styles */
         .container {
-            width: 80%;
+            width: 70%;
             margin: 20px auto;
-            background-color: #333;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            background-color: #292929;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(5, 148, 0, 0.923);
             padding: 20px;
             text-align: center;
         }
 
-        /* Heading styles */
-        h1, h2 {
+        .header {
+            background-color: #2e7d32;
+            color: rgb(36, 36, 36);
+            padding: 20px;
             text-align: center;
-            color: #00ff00; /* Set heading color */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+            border-radius: 5px 5px 0 0;
         }
 
-        /* Download link styles */
-        .download-link {
-            --green: rgb(0, 255, 0);
-            font-size: 15px;
-            padding: 0.7em 2.7em;
-            letter-spacing: 0.06em;
-            position: relative;
-            font-family: inherit;
-            border-radius: 0.6em;
-            overflow: hidden;
-            transition: all 0.3s;
-            line-height: 1.4em;
-            border: 2px solid var(--green);
-            background: linear-gradient(to right, rgba(31, 253, 27, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 38, 0.1) 100%);
-            color: var(--green);
-            box-shadow: inset 0 0 10px rgba(27, 253, 27, 0.4), 0 0 9px 3px rgba(27, 253, 27, 0.1);
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #4caf50;
+            color: rgb(0, 0, 0);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
             text-decoration: none;
-            display: inline-block;
+            transition: background-color 0.3s;
             margin: 10px;
+            display: inline-block;
         }
 
-        .download-link:hover {
-            color: #57f772;
-            box-shadow: inset 0 0 10px rgba(0, 255, 30, 0.29), 0 0 9px 3px rgba(3, 94, 33, 0.2);
+        .button:hover {
+            background-color: #45a049;
         }
 
-        .download-link:before {
-            content: "";
-            position: absolute;
-            left: -4em;
-            width: 4em;
-            height: 100%;
-            top: 0;
-            transition: transform .4s ease-in-out;
-            background: linear-gradient(to right, transparent 1%, rgba(27, 253, 84, 0.156) 40%,rgba(27, 253, 38, 0.1) 60% , transparent 100%);
+        .image-container {
+            margin-bottom: 30px; /* Increased space between image containers */
         }
 
-        .download-link:hover:before {
-            transform: translateX(15em);
+        .image-container img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto 10px; /* Adjusted margin to create more space between image and button group */
+            border-radius: 5px;
         }
 
-        /* Navigation styles */
-        nav {
-            background-color: #00ff2a8f;
+        .button-label {
+            text-align: center; /* Center buttons */
+        }
+
+        .button-label .button {
+            margin: 5px; /* Adjusted button margin */
+        }
+
+        .footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 0 0 5px 5px;
+            margin-top: 20px;
+        }
+
+        .section {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .section h4 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .section .button {
+            background-color: #555;
+            color: #fff;
+            margin-top: 15px;
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+
+        .feature {
+            background-color: #333;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature p {
+            color: #ccc;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .feature img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial {
+            background-color: #555;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .testimonial p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial .author {
+            color: #ccc;
+            font-style: italic;
+            font-size: 16px;
+        }
+            /* Navigation styles */
+            nav {
+            background-color: #00a51bab;
             padding: 10px 0;
             border-radius: 10px;
             text-align: center;
             width: 100%;
-            margin-bottom: 20px;
         }
-
         nav ul {
             padding: 0;
             margin: 0;
             list-style-type: none;
             display: flex;
-            justify-content: center;
+            justify-content: center; /* Center nav items */
         }
-
         nav ul li {
             margin-right: 10px;
         }
-
         nav ul li a {
-            color: #fff;
+            color: #000000;
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
         nav ul li a:hover {
-            background-color: rgba(0, 255, 0, 0.5);
+            background-color: rgba(0, 153, 0, 0.318);
         }
+
+        button {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4f4dd9 0%,#2b60aa 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+button .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+}
+
+button:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+button:hover svg {
+  transform: rotate(360deg);
+}
+
+/* credits to uiverse.io/profile/eirikvold */
+        
     </style>
 </head>
 <body>
-    <!-- Navigation bar -->
     <nav>
         <ul>
             <li><a href="MAIN.html">Home</a></li>
@@ -119,15 +269,83 @@
             <li><a href="BLOG.html">Blog</a></li>
         </ul>
     </nav>
-
-    <!-- Main content -->
+</head>
+<body>
     <div class="container">
-        <h1>Download Linux Distro</h1>
-        <p>Choose the version you want to download:</p>
-        <!-- Download links -->
-        <a href="linux_distro_torrent.torrent" class="download-link">Torrent</a>
-        <a href="linux_distro_iso.iso" class="download-link">ISO</a>
-        <a href="linux_distro_dev.tar.gz" class="download-link">Development</a>
-    </div>
+        <div class="header">
+            <h1>Download Raven Linux</h1>
+            <p>Choose your edition</p>
+        </div>
+
+            <div class="image-container">
+                <img src="assets/xfce.png" alt="Xfce Edition">
+                <div class="button-label">
+                    <a href="download/xfce" class="button">Download Xfce</a>
+                    <a href="https://www.xfce.org/" class="button">Visit Xfce</a>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="assets/kde.png" alt="KDE Plasma Edition">
+                <div class="button-label">
+                    <a href="download/kde" class="button">Download KDE</a>
+                    <a href="https://kde.org/" class="button">Visit KDE</a>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="assets/gnome.png" alt="GNOME Edition">
+                <div class="button-label">
+                    <a href="download/gnome" class="button">Download GNOME</a>
+                    <a href="https://www.gnome.org/" class="button">Visit GNOME</a>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <img src="assets/architect.png" alt="Architect Edition">
+                <div class="button-label">
+                    <a href="download/architect" class="button">Download Architect</a>
+                    <a href="visit/architect" class="button">Visit Architect</a>
+                </div>
+            </div>
+
+            <hr>
+            
+        <div class="section">
+            <h2>If you need help install / download Raven linux join our discord server.</h2>
+            <center>
+            <button>
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="40" height="40">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path fill="currentColor" d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Discord</span>
+              </button></center>
+        </div>
+        <div class="footer">
+            <center>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=AWN28B8KX68RU" style="color: rgb(35, 2, 69);">Paypal:</a>
+
+            </center>
+            <form action="https://www.paypal.com/donate/?hosted_button_id=AWN28B8KX68RU" method="post" target="_top">
+                <!-- Identify your business so that you can collect the payments. -->
+                <input type="hidden" name="business" value="donations@kcparkfriends.org">
+                <!-- Specify details about the contribution -->
+                <input type="hidden" name="no_recurring" value="0">
+                <input type="hidden" name="item_name" value="Friends of the Park">
+                <input type="hidden" name="item_number" value="Fall Cleanup Campaign">
+                <input type="hidden" name="currency_code" value="EUR">
+                <!-- Display the payment button. -->
+                <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+                    alt="Donate">
+                <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+            </form>
+            <center>Copyright © 2024 Raven.com</center>
+            Raven Linux - Free, Fast, and Secure
+        </div>
 </body>
 </html>
